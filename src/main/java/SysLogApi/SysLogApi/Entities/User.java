@@ -12,7 +12,6 @@ import org.hibernate.annotations.GenericGenerator;
 
 import java.util.UUID;
 
-@Data
 @Entity
 @Getter
 @Setter
@@ -30,8 +29,10 @@ public class User {
     private String username;
 
     @Column(name="is_admin")
+    @JsonIgnore
     private boolean isAdmin;
 
     @OneToOne(mappedBy = "user")
+    @JsonIgnore
     private ApiKey apiKey;
 }
